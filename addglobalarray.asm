@@ -44,4 +44,5 @@ L1:
     j L0
 L2:
     # exit program
+    addi $sp,$sp,32
     jr $ra
