@@ -49,7 +49,8 @@ void addglobalarraywithgoto() {
    else
       goto L20;
    L10:
-   printf("%d\n", arrays[i]);
+   temp = arrays[i];
+   printf("%d\n", temp);
    i++;
    goto L00;
    L20:
