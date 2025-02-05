@@ -57,14 +57,13 @@ void addglobalarraywithgoto() {
    return;
 }
 
-void addlocalarraywithgoto() {
+void addlocalarraywithgoto(int arrays[], int size) {
    int i,temp;
-   int arrays[10];
 
    // initialize arrays[]
    i = 0;
    L0:
-   if (i < 10)
+   if (i < size)
       goto L1;
    else
       goto L2;
@@ -78,7 +77,7 @@ void addlocalarraywithgoto() {
    L2:
    i = 0;
    L00:
-   if (i < 10)
+   if (i < size)
       goto L10;
    else
       goto L20;
@@ -94,7 +93,8 @@ int main(void) {
    //add2();
    //addglobalarray();
    //addglobalarraywithgoto();
-   addlocalarraywithgoto();
-
+   //addlocalarraywithgoto();
+   //int arrays[10];
+   addlocalarraywithgoto(arrays, 10);
    return 0;
 }
