@@ -9,18 +9,16 @@ main:
     # 1. local variable arrays[] with 10 elements
     # 2. save original return address from the caller to main
     #
-    # M[$sp] is to save and restore $31 (return address)
-    # M[$sp+4] .. M[$sp+40] is form arrays[0]..arrays[9]
+    # M[$sp+0]  .. M[$sp+36] is form arrays[0]..arrays[9]
+    # M[$sp+40] is to save and restore $31 (return address)
 
     addi $sp,$sp,-44
+    sw $ra,40($sp) # M[$sp]=R[31] # save return addresss
 
-    sw $ra,0($sp) # M[$sp]=R[31]
-
-    addiu $a0,$sp,4  # prepare the 1st argument for addlocalarray
-    li    $a1,10     # prepare the 2nd argument for addlocalarray
+    add $a0,$sp,$0    # prepare the 1st argument for addlocalarray
+    li  $a1,10        # prepare the 2nd argument for addlocalarray
     jal addlocalarray # call addlocalarray(&arrays[0],10)
-
-    lw $ra,0($sp) # R[31]=M[$sp]
+    lw $ra,40($sp)    # restore return address R[31]=M[$sp]
     addi $sp,$sp,44
     jr $ra
 
