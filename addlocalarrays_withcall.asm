@@ -18,6 +18,7 @@ main:
     add $a0,$sp,$0    # prepare the 1st argument for addlocalarray
     li  $a1,10        # prepare the 2nd argument for addlocalarray
     jal addlocalarray # call addlocalarray(&arrays[0],10)
+
     lw $ra,40($sp)    # restore return address R[31]=M[$sp]
     addi $sp,$sp,44
     jr $ra

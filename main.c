@@ -94,7 +94,7 @@ int main(void) {
    //addglobalarray();
    //addglobalarraywithgoto();
    //addlocalarraywithgoto();
-   //int arrays[10];
+   int arrays[10];
    addlocalarraywithgoto(arrays, 10);
    return 0;
 }
